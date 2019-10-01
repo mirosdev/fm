@@ -1,0 +1,32 @@
+<div class="schedule-section">
+
+  <div class="schedule-section__bar">
+    {{ name }}
+  </div>
+
+  <div>
+    <div class="schedule-section__item food"
+         *ngIf="section.meals && section.meals.length > 0; else addMeal"
+         (click)="onSelect('meals', section.meals)">
+      <span>{{ getNames(section.meals) | join }}</span>
+    </div>
+    <ng-template #addMeal>
+      <div class="schedule-section__item" (click)="onSelect('meals')">
+        Assign meal
+      </div>
+    </ng-template>
+
+    <div>
+      <div class="schedule-section__item workout"
+           *ngIf="section.workouts && section.workouts.length > 0; else addWorkout"
+           (click)="onSelect('workouts', section.workouts)">
+        <span>{{ getNames(section.workouts) | join }}</span>
+      </div>
+      <ng-template #addWorkout>
+        <div class="schedule-section__item" (click)="onSelect('workouts')">
+          Assign workout
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

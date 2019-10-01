@@ -1,0 +1,13 @@
+<div class="calendar">
+  <app-schedule-controls [selected]="selectedDay" (move)="onChange($event)">
+  </app-schedule-controls>
+
+  <app-schedule-days [selected]="selectedDayIndex" (selectEvent)="selectDay($event)">
+  </app-schedule-days>
+
+  <app-schedule-section *ngFor="let section of sections"
+                        (selectEvent)="selectSection($event, section.key)"
+                        [name]="section.name"
+                        [section]="getSection(section.key)">
+  </app-schedule-section>
+</div>

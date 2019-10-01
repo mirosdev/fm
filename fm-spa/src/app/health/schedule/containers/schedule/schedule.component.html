@@ -1,0 +1,16 @@
+<div class="schedule">
+
+  <app-schedule-calendar [date]="date$ | async"
+                         [items]="schedule$ | async"
+                         (selectEvent)="changeSection($event)"
+                         (changeDate)="changeDate($event)">
+  </app-schedule-calendar>
+
+  <app-schedule-assign *ngIf="open"
+                       (update)="assignItem($event)"
+                       (cancel)="closeAssign()"
+                       [section]="selected$ | async"
+                       [list]="list$ | async">
+  </app-schedule-assign>
+
+</div>

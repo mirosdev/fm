@@ -1,0 +1,15 @@
+<div>
+  <app-auth-form [container]="'login'" (submitted)="loginUser($event)">
+    <h1>Login</h1>
+    <a routerLink="/auth/register">Not registered?</a>
+    <button type="submit">
+      Login
+    </button>
+    <!-- DO STYLES -->
+    <button (click)="googleLogin()" type="button">
+      <img style="width: 14px" src="assets/google-icon-48.png">
+      Google
+    </button>
+    <div class="error" *ngIf="error">{{ error }}</div>
+  </app-auth-form>
+</div>
